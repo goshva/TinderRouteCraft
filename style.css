@@ -2,7 +2,6 @@ html,
 body { 
   height: 100%;
   line-height: 1;
-  max-width: 320px;
   background:linear-gradient(45deg, #cdd6dd, #fface4);
 }
 
