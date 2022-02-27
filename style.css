@@ -34,8 +34,14 @@ main{
    top: 400px;
    font-size: 14px;
    line-height: 18px;
-   text-align: center;
-   
+   text-align: center;   
+}
+.main__age{
+  position: absolute;
+  width: 213px;
+  height: 23px;
+  left: 74px;
+  top: 179px;
 }
 .footer{
    position: absolute;
@@ -58,4 +64,14 @@ font-size: 14px;
 line-height: 18px;
 text-align: center;
 color: #000000;
+}
+.botton:first-child{
+  position: absolute;
+  width: 320px;
+  height: 89px;
+  left: 20px;
+  top: 268px;
+  background: linear-gradient(180deg, #A997F8 0%, #7C60FF 100%);
+  box-shadow: 0px 8px 10px rgba(130, 102, 250, 0.35);
+  border-radius: 15px;
 }
