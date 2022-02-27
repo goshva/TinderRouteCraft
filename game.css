@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 *, *:before, *:after {
   box-sizing: border-box;
   padding: 0;
@@ -5,10 +7,10 @@
 }
 
 body {
-  background:linear-gradient(45deg, #cdd6dd, #fface4);
+  background:linear-gradient(90deg, #cdd6dd 40%, #fface4 60%);
   background-color: #CCFBFE;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .tinder {
@@ -65,6 +67,11 @@ body {
   align-items: flex-end;
   z-index: 1;
 }
+.tinder--cards:first-child {
+  opacity: 0.5;
+  border: 1px  solid olive;
+}
+
 
 .tinder--card {
   display: inline-block;
@@ -81,6 +88,7 @@ body {
   cursor: -webkit-grab;
   cursor: grab;
 }
+
 
 .moving.tinder--card {
   transition: none;
@@ -138,4 +146,12 @@ body {
 
 .fa-remove {
   color: #CDD6DD;
+}
+.swip_finger{
+  max-width: 300px;
+  width: 10vh;
+  min-width:40px;
+  margin: auto;
+  z-index: 1;
+  opacity:0.5;
 }
