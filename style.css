@@ -2,7 +2,7 @@ html,
 body { 
   height: 100%;
   line-height: 1;
-  background:linear-gradient(45deg, #cdd6dd, #fface4);
+  background:linear-gradient(45deg, #cdd6dd, #fface4) no-repeat;
 }
 
 .header__container{
