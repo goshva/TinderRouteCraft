@@ -5,7 +5,8 @@
 }
 
 body {
-  background: #CCFBFE;
+  background:linear-gradient(45deg, #cdd6dd, #fface4);
+  background-color: #CCFBFE;
   overflow: hidden;
   font-family: sans-serif;
 }
