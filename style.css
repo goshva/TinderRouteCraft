@@ -65,6 +65,13 @@ line-height: 18px;
 text-align: center;
 color: #000000;
 }
+span:first-child{
+  position: absolute;
+  width: 67px;
+  height: 23px;
+  left: 147px;
+  top: 301px;
+}
 .botton:first-child{
   position: absolute;
   width: 320px;
