@@ -116,10 +116,15 @@ body {
 }
 
 .tinder--buttons {
-  flex: 0 0 100px;
-  text-align: center;
-  padding-top: 20px;
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
 }
+
 
 .tinder--buttons button {
   border-radius: 50%;
@@ -129,6 +134,9 @@ body {
   background: #FFFFFF;
   display: inline-block;
   margin: 0 8px;
+  margin-bottom: 4px;
+  box-shadow: 1px 3px 3px #cdd6dd;
+    
 }
 
 .tinder--buttons button:focus {
