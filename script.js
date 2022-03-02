@@ -74,6 +74,14 @@ function createButtonListener(love) {
     var moveOutWidth = document.body.clientWidth * 1.5;
 
     if (!cards.length) return false;
+    if (cards.length == 2){
+      console.log(21)
+      document.getElementById('nope').firstChild.className = "fa fa-phone"
+      document.getElementById('nope').addEventListener("click", phoneMe);
+      document.getElementById('love').firstChild.className = "fa fa-whatsapp"
+      document.getElementById('love').addEventListener("click", whatsapp);
+
+    }
 
     var card = cards[0];
 
@@ -84,6 +92,8 @@ function createButtonListener(love) {
     } else {
       card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
     }
+
+
 
     initCards();
 
@@ -96,3 +106,10 @@ var loveListener = createButtonListener(true);
 
 nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
+
+function phoneMe(){
+  window.location.replace("tel:+1303499-7111")
+}
+function whatsapp(){
+  window.location.replace("http://whatsapp")
+}
