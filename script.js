@@ -108,8 +108,8 @@ nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
 
 function phoneMe(){
-  window.location.replace("tel:+1303499-7111")
+  window.location.replace("tel:+79620002200")
 }
 function whatsapp(){
-  window.location.replace("http://whatsapp")
+  window.location.replace("https://chat.whatsapp.com/DaNtmgQ74GdCixHxdOBAVA")
 }
