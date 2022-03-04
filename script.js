@@ -25,9 +25,6 @@ allCards.forEach(function (el) {
 
   hammertime.on('pan', function (event) {
     el.classList.add('moving');
-  });
-
-  hammertime.on('pan', function (event) {
     if (event.deltaX === 0) return;
     if (event.center.x === 0 && event.center.y === 0) return;
 
@@ -43,6 +40,7 @@ allCards.forEach(function (el) {
 
   hammertime.on('panend', function (event) {
     el.classList.remove('moving');
+    last_switch_action()
     tinderContainer.classList.remove('tinder_love');
     tinderContainer.classList.remove('tinder_nope');
 
@@ -67,21 +65,17 @@ allCards.forEach(function (el) {
     }
   });
 });
-
+console.log
 function createButtonListener(love) {
+  
   return function (event) {
     var cards = document.querySelectorAll('.tinder--card:not(.removed)');
     var moveOutWidth = document.body.clientWidth * 1.5;
+    console.log(cards.length)
 
     if (!cards.length) return false;
-    if (cards.length == 2){
-      console.log(21)
-      document.getElementById('nope').firstChild.className = "fa fa-phone"
-      document.getElementById('nope').addEventListener("click", phoneMe);
-      document.getElementById('love').firstChild.className = "fa fa-whatsapp"
-      document.getElementById('love').addEventListener("click", whatsapp);
-
-    }
+    last_switch_action()
+   
 
     var card = cards[0];
 
@@ -112,4 +106,13 @@ function phoneMe(){
 }
 function whatsapp(){
   window.location.replace("https://chat.whatsapp.com/DaNtmgQ74GdCixHxdOBAVA")
+}
+function last_switch_action(){
+  var cards = document.querySelectorAll('.tinder--card:not(.removed)');
+  if (cards.length < 3){
+    document.getElementById('nope').firstChild.className = "fa fa-phone"
+    document.getElementById('nope').addEventListener("click", phoneMe);
+    document.getElementById('love').firstChild.className = "fa fa-whatsapp"
+    document.getElementById('love').addEventListener("click", whatsapp);
+  }
 }
