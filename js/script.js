@@ -1,6 +1,6 @@
 'use strict';
-
-var tinderContainer = document.querySelector('.tinder');
+function drawAfter() {
+  var tinderContainer = document.querySelector('.tinder');
 var allCards = document.querySelectorAll('.tinder--card');
 var nope = document.getElementById('nope');
 var love = document.getElementById('love');
@@ -39,6 +39,9 @@ allCards.forEach(function (el) {
   });
 
   hammertime.on('panend', function (event) {
+    if (event.deltaX > 0) {
+      saveCoordinates(el);  // Correct function call to save coordinates
+    }
     el.classList.remove('moving');
     last_switch_action()
     tinderContainer.classList.remove('tinder_love');
@@ -65,13 +68,11 @@ allCards.forEach(function (el) {
     }
   });
 });
-console.log
 function createButtonListener(love) {
   
   return function (event) {
     var cards = document.querySelectorAll('.tinder--card:not(.removed)');
     var moveOutWidth = document.body.clientWidth * 1.5;
-    console.log(cards.length)
 
     if (!cards.length) return false;
     last_switch_action()
@@ -82,7 +83,9 @@ function createButtonListener(love) {
     card.classList.add('removed');
 
     if (love) {
+      saveCoordinates(card);
       card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+
     } else {
       card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
     }
@@ -101,6 +104,17 @@ var loveListener = createButtonListener(true);
 nope.addEventListener('click', nopeListener);
 love.addEventListener('click', loveListener);
 
+function saveCoordinates(card) {
+  var coordinates = card.getAttribute('data-coordinates');
+  if (coordinates) {
+    var savedCoordinates = localStorage.getItem('savedCoordinates');
+    savedCoordinates = savedCoordinates ? JSON.parse(savedCoordinates) : [];
+    savedCoordinates.push(coordinates);
+    localStorage.setItem('savedCoordinates', JSON.stringify(savedCoordinates));
+    console.log('Coordinates saved:', savedCoordinates);
+  }
+}
+
 function phoneMe(){
   window.location.replace("tel:+79620002200")
 }
@@ -115,4 +129,5 @@ function last_switch_action(){
     document.getElementById('love').firstChild.className = "fa fa-whatsapp"
     document.getElementById('love').addEventListener("click", whatsapp);
   }
+}
 }
