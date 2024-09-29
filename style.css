@@ -143,7 +143,6 @@ body {
   flex: 0 0 100px;
   text-align: center;
   padding-top: 20px;
-  position: absolute;
   bottom: 24px;
   z-index: 1000;
   width: 100vw;
