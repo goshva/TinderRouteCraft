@@ -128,6 +128,7 @@ function last_switch_action(){
     document.getElementById('nope').addEventListener("click", phoneMe);
     document.getElementById('love').firstChild.className = "fa fa-whatsapp"
     document.getElementById('love').addEventListener("click", whatsapp);
+    genRoute();
   }
 }
 }
