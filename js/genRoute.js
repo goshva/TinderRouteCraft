@@ -74,7 +74,7 @@ function genRoute() {
     }
 
     // Возвращаемся в начальную точку
-    path.push(0);
+    //path.push(0);
 
     return path;
   }
