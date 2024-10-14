@@ -3,6 +3,7 @@ function drawAfter() {
   var tinderContainer = document.querySelector('.tinder');
 var allCards = document.querySelectorAll('.tinder--card');
 var nope = document.getElementById('nope');
+var map = document.getElementById('map');
 var love = document.getElementById('love');
 
 function initCards(card, index) {
@@ -102,6 +103,7 @@ var nopeListener = createButtonListener(false);
 var loveListener = createButtonListener(true);
 
 nope.addEventListener('click', nopeListener);
+//map.addEventListener('click', genRoute);
 love.addEventListener('click', loveListener);
 
 function saveCoordinates(card) {

@@ -1,34 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Tinder swipe cards</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div class="tinder">
-  <div class="tinder--status">
-    <i class="fa fa-remove"></i>
-    <i class="fa fa-heart"></i>
-  </div>
-  <div id="cards-container"class="tinder--cards">
-    <div class="start--tinder--card tinder--card" style="background: #e7c1e1">
-      <img src="./img/hand.svg">
-      <h3>Листай</h3>
+  <!-- partial:index.partial.html -->
+  <div class="tinder">
+    <div class="tinder--status">
+      <i class="fa fa-remove"></i>
+      <i class="fa fa-heart"></i>
     </div>
+    <div id="cards-container" class="tinder--cards">
+      <div class="start--tinder--card tinder--card" style="background: #e7c1e1">
+        <img src="./img/hand.svg">
+        <h3>Листай</h3>
+      </div>
+    </div>
+    <div class="tinder--buttons">
+      <button id="nope"><i class="fa fa-trash"></i></button>
+      <button id="love"><i class="fa fa fa-heart-o"></i></button>
+    </div>
+    <div id="lineContainer">
+      <div class="line"></div>
+    </div>
+
   </div>
-  <div class="tinder--buttons">
-    <button id="nope"><i class="fa fa-trash"></i></button>
-    <button id="love"><i class="fa fa fa-heart-o"></i></button>
-  </div>
-</div>
-<!-- partial -->
+
+  <script>
+    // Distance array in kilometers
+    const distances = [1.5780948415413343, 0.9666646752417736, 0.7502755666881483, 2.0159742726478695, 
+                       1.462123491056377, 0.12570361601403493, 0.17129307083666173, 1.5701103952193183, 
+                       2.182444391102572, 1.5780948415413343, 1.5780948415413343, 1.462123491056377, 
+                       1.462123491056377, 1.638817601514179, 0.2881371436012831, 0.28165208942002523, 
+                       0.4755803011733511];
+
+    // Get the container width
+    const lineContainer = document.getElementById('lineContainer');
+    const lineContainerWidth = lineContainer.offsetWidth;
+
+    // Sum up the total distance
+    const totalDistance = distances.reduce((sum, dist) => sum + dist, 0);
+
+    // Calculate the proportional width unit (how many pixels per km)
+    const pixelsPerKm = lineContainerWidth / totalDistance;
+
+    // Keep track of the cumulative distance
+    let cumulativeDistance = 0;
+
+    distances.forEach((distance, index) => {
+        // Calculate the cumulative distance in pixels
+        cumulativeDistance += distance;
+        const positionInPixels = cumulativeDistance * pixelsPerKm;
+
+        // Create a point (as a div element)
+        const point = document.createElement('div');
+        point.classList.add('point');
+
+        // Position the point on the line
+        point.style.left = positionInPixels + 'px';
+
+        // Add the point to the container
+        lineContainer.appendChild(point);
+    });
+</script>
+  <!-- partial -->
   <script src="./js/getInfo.js"></script>
   <script src='./js/hammer.min.js'></script>
-  <script  src="./js/script.js"></script>
-  <script  src="./js/genRoute.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/genRoute.js"></script>
+  <script src="./js/distance.js"></script>
+  <script src="./js/dictanceLine.js"></script>
+
+
 </body>
+
 </html>

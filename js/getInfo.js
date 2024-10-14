@@ -16,7 +16,6 @@ function createCard(object) {
     const card = document.createElement('div');
     card.className = 'tinder--card';
     //card.dataset.id = object.id;
-    console.log(object.coordinates);
     card.dataset.coordinates = [object.coordinates[1],object.coordinates[0]];
 
     const img = document.createElement('img');
