@@ -90,3 +90,4 @@ function genRoute() {
   window.location.href = convertToYandexMapsLink(pathCoordinates);
 
 }
+
