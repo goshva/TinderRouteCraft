@@ -22,22 +22,22 @@ function haversineDistance(coord1, coord2) {
 }
 
 function drawWay(distances) {
-    const lineContainer = document.getElementById('lineContainer');
-    const lineContainerWidth = lineContainer.offsetWidth;
+    const pointContainer = document.getElementById('pointContainer');
+    const pointContainerWidth = pointContainer.offsetWidth;
     const totalDistance = distances.reduce((sum, dist) => sum + dist, 0);
-    const pixelsPerKm = lineContainerWidth / totalDistance;
+    const pixelsPerKm = pointContainerWidth / totalDistance;
     let cumulativeDistance = 0;
-    while (lineContainer.firstChild) {
-        lineContainer.removeChild(lineContainer.lastChild);
+    while (pointContainer.firstChild) {
+        pointContainer.removeChild(pointContainer.lastChild);
     }
-    
+
     distances.forEach((distance, index) => {
         cumulativeDistance += distance;
         const positionInPixels = cumulativeDistance * pixelsPerKm;
         const point = document.createElement('div');
         point.classList.add('point');
         point.style.left = positionInPixels + 'px';
-        lineContainer.appendChild(point);
+        pointContainer.appendChild(point);
     });
 }
 
@@ -55,7 +55,11 @@ function calculateRouteDistances() {
         const distance = haversineDistance(coordinates[i], coordinates[i + 1]);
         distances.push(distance);
         way = distance + way;
-        console.log(way);
+        updateDistanceCount(way)
     }
     drawWay(distances);
+}
+function updateDistanceCount(way) {
+    const countDistance = document.getElementById('countDistance');
+    countDistance.innerHTML = way;
 }

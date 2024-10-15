@@ -14,28 +14,38 @@ body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
 }
+
 .start--tinder--card {
   position: relative;
-  animation: leftRight 1s ease-in-out ;
+  animation: leftRight 1s ease-in-out;
 }
 
 @keyframes leftRight {
   0% {
     transform: translateX(0);
   }
+
   25% {
-    transform: translateX(-50px); /* Move left */
+    transform: translateX(-50px);
+    /* Move left */
   }
+
   50% {
-    transform: translateX(50px); /* Move right */
+    transform: translateX(50px);
+    /* Move right */
   }
+
   75% {
-    transform: translateX(-50px); /* Move left */
+    transform: translateX(-50px);
+    /* Move left */
   }
+
   100% {
-    transform: translateX(0); /* Back to the original position */
+    transform: translateX(0);
+    /* Back to the original position */
   }
 }
+
 .tinder {
   width: 100vw;
   height: 100vh;
@@ -188,6 +198,17 @@ body {
   opacity: 0.5;
 }
 
+#lineContainer {
+  height: 8px;
+  background-color: black;
+  /* padding-bottom: 7px; */
+  margin-bottom: 4px;
+}
+
+.dashed-line {
+  border-top: 2px dashed white;
+  margin-top: 3px;
+}
 
 .line {
   position: absolute;
@@ -200,9 +221,21 @@ body {
 
 .point {
   position: absolute;
-  bottom: 0;
-  width: 16px;
-  height: 16px;
-  background-color: red;
+  bottom: -1px;
+  width: 20px;
+  height: 20px;
+  background-color: #ff4332;
+  background-image: radial-gradient(circle, white 3px, transparent 4px);
   border-radius: 50%;
+  box-shadow: -1px 1px 3px black;
+}
+.point-finish {
+  right: 0;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  opacity: 0.85;
+  z-index: 1000;
+  position: absolute; /* Ensure the element is positioned relative to its container */
 }
