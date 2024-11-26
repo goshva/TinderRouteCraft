@@ -57,20 +57,7 @@ This project is an interactive excursion planning tool that uses a "Tinder-style
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Location 1",
-    "latitude": 42.718741,
-    "longitude": 0.001188,
-    "description": "A brief description of the location."
-  },
-  {
-    "id": 2,
-    "name": "Location 2",
-    "latitude": 42.718900,
-    "longitude": 0.001500,
-    "description": "Another interesting spot."
-  }
+
 ]
 ```
 
@@ -85,7 +72,7 @@ This project is an interactive excursion planning tool that uses a "Tinder-style
    ```
 
 2. **Install Dependencies**:
-   Run Live serer VS code Extention
+   Run Live server VS code Extention
 
 ---
 
